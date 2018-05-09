@@ -322,9 +322,9 @@ macro_rules! def_machine {
                 }
 
                 let trans = s.start($clone!(args))?;
-                self.handle($clone!(args), trans)?;
                 s.resume($clone!(args));
                 *self.last() = s;
+                self.handle($clone!(args), trans)?;
 
                 Ok(())
             }
